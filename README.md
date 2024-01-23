@@ -1,4 +1,4 @@
-# PandanVim
+# PandanVim 🐼
 
 PandanVim is a Neovim configuration that brings together a carefully selected set of plugins to enhance your Neovim experience. It's designed to provide a powerful and efficient environment for both coding and daily text editing tasks.
 
