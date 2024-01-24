@@ -13,8 +13,8 @@ return{
       -- stylua: ignore
       offsets = {
         {
-          filetype = "NvimTree",
-          text = "NvimTree",
+          filetype = "neo-tree",
+          text = "Neotree",
           highlight = "Directory",
           text_align = "left",
         },

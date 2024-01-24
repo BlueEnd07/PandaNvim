@@ -1,6 +1,7 @@
 {
     "diagnostics.globals": [
         "vim",
-        "nvim_bufferline"
+        "nvim_bufferline",
+        "autotag"
     ]
 }

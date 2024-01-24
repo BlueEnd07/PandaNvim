@@ -9,7 +9,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "tsserver" },
+				ensure_installed = { "lua_ls", "tsserver", "tailwindcss", "html",'emmet_language_server' },
 			})
 		end,
 	},
@@ -21,6 +21,9 @@ return {
 			local lspconfig = require("lspconfig")
 			lspconfig.lua_ls.setup({})
 			lspconfig.tsserver.setup({})
+			lspconfig.tailwindcss.setup({})
+			lspconfig.html.setup({})
+			lspconfig.emmet_language_server.setup({})
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
@@ -42,12 +45,19 @@ return {
 	},
 	{
 		"windwp/nvim-autopairs",
-		opts = {
-			fast_wrap = {},
-			disable_filetype = { "TelescopePrompt", "vim" },
-		},
-		config = function(_, opts)
-			require("nvim-autopairs").setup(opts)
+		config = function()
+			require("nvim-autopairs").setup({
+				fast_wrap = {
+					map = "<M-e>",
+					chars = { "{", "[", "(", '"', "'" },
+					pattern = [=[[%'%"%>%]%)%}%,]]=],
+					end_key = "$",
+					keys = "qwertyuiopzxcvbnmasdfghjkl",
+					manual_position = true,
+					highlight = "Search",
+					highlight_grey = "Comment",
+				},
+			})
 
 			-- setup cmp for autopairs
 			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
