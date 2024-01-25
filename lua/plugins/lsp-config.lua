@@ -9,7 +9,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "tsserver", "tailwindcss", "html",'emmet_language_server' },
+				ensure_installed = { "lua_ls", "tsserver", "tailwindcss", "html",'emmet_language_server','pyright' },
 			})
 		end,
 	},
@@ -21,6 +21,7 @@ return {
 			local lspconfig = require("lspconfig")
 			lspconfig.lua_ls.setup({})
 			lspconfig.tsserver.setup({})
+			lspconfig.pyright.setup({})
 			lspconfig.tailwindcss.setup({})
 			lspconfig.html.setup({})
 			lspconfig.emmet_language_server.setup({})
@@ -39,6 +40,7 @@ return {
 					"eslint_d",
 					"prettier",
 					"shellcheck",
+          "djlint"
 				},
 			})
 		end,
