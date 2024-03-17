@@ -31,13 +31,7 @@ return {
 
 		local toggle_modes = { "n", "t" }
 		local mappings = {
-			{
-				"n",
-				"<C-l>",
-				function()
-					terminal.send(ft_cmds[vim.bo.filetype])
-				end,
-			},
+
 			{
 				toggle_modes,
 				"<A-h>",

@@ -38,7 +38,7 @@ return {
 				ensure_installed = {
 					"stylua",
 					"eslint_d",
-					"prettier",
+					"prettierd",
 					"shellcheck",
           "djlint"
 				},
