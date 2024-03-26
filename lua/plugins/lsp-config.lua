@@ -9,7 +9,15 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "tsserver", "tailwindcss", "html",'emmet_language_server','pyright' },
+				ensure_installed = {
+					"lua_ls",
+					"tsserver",
+					"tailwindcss",
+					"html",
+					"emmet_language_server",
+					"pyright",
+					"astro",
+				},
 			})
 		end,
 	},
@@ -24,6 +32,7 @@ return {
 			lspconfig.pyright.setup({})
 			lspconfig.tailwindcss.setup({})
 			lspconfig.html.setup({})
+			lspconfig.astro.setup({})
 			lspconfig.emmet_language_server.setup({})
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
@@ -40,7 +49,7 @@ return {
 					"eslint_d",
 					"prettierd",
 					"shellcheck",
-          "djlint"
+					"djlint",
 				},
 			})
 		end,
