@@ -6,7 +6,7 @@ vim.g.mapleader = " "
 local map = vim.keymap.set
 -- Navigate vim panes better
 map("n", "<leader>n", "<cmd>set nu!<CR>", { desc = "Toggle Line number" })
-map("n", "<leader>rn", "<cmd>set rnu!<CR>", { desc = "Toggle Relative number" })
+map("n", "<leader>rl", "<cmd>set rnu!<CR>", { desc = "Toggle Relative number" })
 
 -- windows
 map("n", "<leader>ww", "<C-W>p", { desc = "Other window", remap = true })
@@ -26,10 +26,8 @@ map("n", "<C-Up>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
 map("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
 map("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
 
-
 -- save file
 map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
-
 
 --telescope
 
@@ -45,10 +43,10 @@ map("n", "<leader>pt", "<cmd>Telescope terms<CR>", { desc = "Telescope Pick hidd
 map("n", "<leader>th", "<cmd>Telescope themes<CR>", { desc = "Telescope Nvchad themes" })
 map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Telescope Find files" })
 map(
-  "n",
-  "<leader>fa",
-  "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>",
-  { desc = "Telescope Find all files" }
+	"n",
+	"<leader>fa",
+	"<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>",
+	{ desc = "Telescope Find all files" }
 )
 
 -- whichkey
@@ -57,18 +55,24 @@ map("n", "<leader>wK", "<cmd>WhichKey <CR>", { desc = "Whichkey all keymaps" })
 -- toggleable terminal
 
 map({ "n", "t" }, "<A-h>", function()
-  require("nvterm.terminal").toggle("horizontal")
+	require("nvterm.terminal").toggle("horizontal")
 end, { desc = "Terminal Toggle horizontal term" })
 
 map({ "n", "t" }, "<A-v>", function()
-  require("nvterm.terminal").toggle("vertical")
+	require("nvterm.terminal").toggle("vertical")
 end, { desc = "Terminal Toggle vertical term" })
 
 map({ "n", "t" }, "<A-i>", function()
-  require("nvterm.terminal").toggle("float")
+	require("nvterm.terminal").toggle("float")
 end, { desc = "Terminal Toggle Floating term" })
 
 map("t", "<esc><esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
+
+vim.keymap.set("n", "<leader>rn", function()
+  return ":IncRename " .. vim.fn.expand("<cword>")
+end, { expr = true })
+
+
 
 vim.wo.number = true
 vim.rnu = true
