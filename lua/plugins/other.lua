@@ -28,5 +28,11 @@ return {
 	},
   {
     'folke/lsp-colors.nvim'
+  },
+  {
+    'mg979/vim-visual-multi'
+  },
+  {
+    'ggandor/leap.nvim'
   }
 }
